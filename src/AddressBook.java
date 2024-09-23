@@ -7,11 +7,20 @@ public class AddressBook {
     }
 
     public void addBuddy(BuddyInfo buddy){
-        myArrayList.add(buddy);
+        if (buddy != null) {
+            myArrayList.add(buddy);
+        }
     }
 
-    public void removeBuddy(BuddyInfo buddy) {
-        myArrayList.remove(buddy);
+    public BuddyInfo removeBuddy(int index) {
+        if (index >= 0 && index < myArrayList.size()) {
+            return myArrayList.remove(index);
+        }
+        return null;
+    }
+
+    public int addressBookSize(){
+        return myArrayList.size();
     }
 
 
@@ -19,7 +28,7 @@ public class AddressBook {
         BuddyInfo buddy1 = new BuddyInfo("Connor", "123-456-7890", "123 Carleton lane");
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy1);
-        addressBook.removeBuddy(buddy1);
+        addressBook.removeBuddy(0);
         System.out.println("Address Book");
     }
 }
